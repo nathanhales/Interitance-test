@@ -79,6 +79,7 @@ class Knight : Enemy
         Name = "Knight";
         Health = 500;
         Armor = 250;
+        Weapon = Weapons.Sword;
         Flying(false);
     }
 
