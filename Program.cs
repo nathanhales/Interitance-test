@@ -46,7 +46,9 @@ class Enemy
         if (canFly == true)
         {
             enemyType = EnemyType.Flying;
-            Console.WriteLine("This enemy is airbourne. It can only be damaged with ranged attacks");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("This enemy is airbourne. It can only be damaged with ranged attacks\n");
+            Console.ResetColor();
         } 
     }
 }
