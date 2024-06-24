@@ -11,7 +11,6 @@ Knight knight = new Knight();
 Console.WriteLine($"\nName: {knight.Name} Health: {knight.Health} Armor Value: {knight.Armor} Weapon: {knight.Weapon}\n");
 knight.KnightIntro();
 
-
 class Enemy
 {
     private int _health;
@@ -40,12 +39,15 @@ class Enemy
         set { _manaValue = value; }
     }
 
-    public void Flying(bool canFly)
+    public void CanFly(bool canFly)
     {
+        EnemyType enemyType;
+
         if (canFly == true)
         {
-            Console.WriteLine("CAUTION - This enemy is flying\n");
-        }
+            enemyType = EnemyType.Flying;
+            Console.WriteLine("This enemy is airbourne. It can only be damaged with ranged attacks");
+        } 
     }
 }
 
@@ -55,12 +57,14 @@ class Bat : Enemy
     {
         Console.WriteLine("\nEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
     }
+
+    
     public Bat()
     {
         Name = "bat";
         Health = 150;
         Armor = 10;
-        Flying(true);
+        CanFly(true);
     }
 }
 
@@ -80,7 +84,6 @@ class Knight : Enemy
         Health = 500;
         Armor = 250;
         Weapon = Weapons.Sword;
-        Flying(false);
     }
 
     public void KnightIntro()
@@ -89,4 +92,12 @@ class Knight : Enemy
     }
 }
 
+class FlyingEnemy
+{
+
+}
+
+
+
 enum Weapons { Sword, Spear, Flail, Halberd }
+enum EnemyType { Ground, Flying }
